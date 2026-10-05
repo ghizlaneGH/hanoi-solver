@@ -17,3 +17,6 @@ Technologies:
  2- Récursivité
  3- Listes
 
+Exécution : 
+```bash
+python hanoi_solver.py --disks 3
