@@ -1,4 +1,4 @@
-from hanoi_solver import hanoi_solver
+from hanoi.hanoi_solver import hanoi_solver
 
 
 def test_hanoi_0():
