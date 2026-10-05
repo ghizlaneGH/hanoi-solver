@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hanoi Visualizer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">🗼</div>
+
+                <div>
+                    <h1>Hanoi Visualizer</h1>
+                    <p>Visualisation interactive des Tours de Hanoï</p>
+                </div>
+            </div>
+
+            <div class="algorithm-badge">
+                <span class="status-dot"></span>
+                Recursive Algorithm
+            </div>
+
+        </header>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- CONTROL PANEL -->
+            <section class="control-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Configuration</h2>
+                        <p>Configurez la simulation</p>
+                    </div>
+                </div>
+
+
+                <div class="controls">
+
+                    <div class="input-group">
+
+                        <label for="diskInput">
+                            Nombre de disques
+                        </label>
+
+                        <div class="disk-input-wrapper">
+
+                            <button class="icon-button" id="decreaseDisk">
+                                −
+                            </button>
+
+                            <input id="diskInput" type="number" min="1" max="10" value="3">
+
+                            <button class="icon-button" id="increaseDisk">
+                                +
+                            </button>
+
+                        </div>
+
+                        <span class="input-hint">
+                            Maximum recommandé : 10
+                        </span>
+
+                    </div>
+
+
+                    <button class="primary-button" id="startButton">
+
+                        <span>▶</span>
+
+                        Lancer la simulation
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- VISUALIZATION -->
+            <section class="visualization-panel">
+
+                <div class="visualization-header">
+
+                    <div>
+                        <h2>Visualisation</h2>
+                        <p id="stateDescription">
+                            Prêt à commencer
+                        </p>
+                    </div>
+
+                    <div class="step-counter">
+                        <span id="currentStep">0</span>
+                        <span class="separator">/</span>
+                        <span id="totalSteps">0</span>
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+                <div class="progress-container">
+
+                    <div class="progress-bar">
+                        <div class="progress-value" id="progressValue">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- RODS -->
+                <div class="rods-container">
+
+                    <div class="rod-wrapper">
+
+                        <div class="rod-label">
+                            <span>A</span>
+                            Source
+                        </div>
+
+                        <div class="rod-area">
+                            <div class="rod" id="rod0"></div>
+                            <div class="base"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="rod-wrapper">
+
+                        <div class="rod-label">
+                            <span>B</span>
+                            Auxiliaire
+                        </div>
+
+                        <div class="rod-area">
+                            <div class="rod" id="rod1"></div>
+                            <div class="base"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="rod-wrapper">
+
+                        <div class="rod-label">
+                            <span>C</span>
+                            Destination
+                        </div>
+
+                        <div class="rod-area">
+                            <div class="rod" id="rod2"></div>
+                            <div class="base"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PLAYER -->
+                <div class="player">
+
+                    <button class="player-button" id="previousButton" title="Étape précédente">
+
+                        ◀
+
+                    </button>
+
+
+                    <button class="play-button" id="playButton" title="Lecture">
+
+                        ▶
+
+                    </button>
+
+
+                    <button class="player-button" id="nextButton" title="Étape suivante">
+
+                        ▶
+
+                    </button>
+
+
+                    <button class="player-button reset-button" id="resetButton" title="Réinitialiser">
+
+                        ↻
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STATS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">💿</div>
+
+                    <div>
+                        <span class="stat-label">
+                            Disques
+                        </span>
+
+                        <strong id="diskStat">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">↗</div>
+
+                    <div>
+                        <span class="stat-label">
+                            Déplacements
+                        </span>
+
+                        <strong id="moveStat">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">⚡</div>
+
+                    <div>
+                        <span class="stat-label">
+                            Complexité
+                        </span>
+
+                        <strong>
+                            O(2ⁿ)
+                        </strong>
+                    </div>
+
+                </div>
+
+
+
+
+            </section>
+
+        </main>
+
+
+
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
